@@ -1,0 +1,22 @@
+aprs-mapper
+
+This project was developed for a class taken at the University of Alabama in Huntsville. The purpose of this application is to copy some of the basic functionality available in other APRS applications (namely, xastir) but to provide a more user-friendly interface. Basic functionality was achieved at the end of the semester, but there are many features that are lacking for this to be a stable application available to the public.
+
+A quick overview of features:
+
+* The application will only send a position report, otherwise it is listen only
+* Connect to [multiple] APRS internet service
+* Plot points on a pan/zoom capable map
+* Map choice is user configurable from any 512x512 tile server (for example, open street maps)
+* Cache tiles for use in offline mode
+* Save points to a local database to view in offline mode
+* Blacklist/whitelist filters to only show objects of interest
+* Weather overlays for severe weather in the USA
+* Plots previous locations of points to show movement history
+* Rretrieve database info for a point the user clicks on
+* Cross platform capable (Qt)
+
+
+How to get this working:
+1) Get Qt Creator
+2) Compile
