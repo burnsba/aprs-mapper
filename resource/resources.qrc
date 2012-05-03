@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>aprs_icons.png</file>
+    </qresource>
+</RCC>

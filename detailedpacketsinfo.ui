@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>detailedPacketsInfo</class>
+ <widget class="QDialog" name="detailedPacketsInfo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>707</width>
+    <height>423</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>100</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Detailed information</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QFormLayout" name="formLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetNoConstraint</enum>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item row="1" column="0" colspan="2">
+      <widget class="QTableWidget" name="tableDetailedInfo">
+       <column>
+        <property name="text">
+         <string>Timestamp</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Destination</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Data</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Latitude</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Longitude</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Altitude</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Path</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Payload</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Message</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Course</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Speed</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Temp</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Pressure</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Wind_speed</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Wind_direction</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Wind_gust</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Rain_1hr</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Rain_24hr</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Rain_midnight</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Snow_24hr</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Raincount</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Humidity</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Luminosity</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QTextEdit" name="textLatestInfo">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
