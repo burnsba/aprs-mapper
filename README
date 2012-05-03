@@ -18,6 +18,7 @@ A quick overview of features:
 * Rretrieve database info for a point the user clicks on
 * Cross platform capable (Qt)
 
+See "downloads" section on github for screenshots.
 
 How to get this working:
 1) Get Qt Creator
@@ -28,26 +29,44 @@ Notes from the final submission:
 
 * More detailed mouse-over info!
 (dead_reckoning png) The item is now hi-lighted (the outline turns green) when the mouse is over an item. On the right of the statusbar is shown the callsign of the hi-lighted item, the last time an update was received, the distance between the current item and your home station (in km or mi, depending on the profile option english/metric), the bearing in degrees and compass direction. Mousing over a trace will also show this, for the item, not the mouse position.
+
 * Filter on screen items!
 (dead_reckoning png) "Client side" filtering can be done using blacklists and whitelists (I'm pretty sure using both lists is unnecessary, but it's already been coded). It should be obvious, but whitelisting something will always allow it to be drawn, while blacklisting something will never allow it to be drawn on the map. Filtering does not affect logging; that is, even if an item is blacklisted, it will still be stored in the database; the only thing that changes is that it won't be drawn on the map. Blacklisting an item has priority over whitelisting an item. Items can be filtered by the type (position report, object), as determined by qaprstools, or by symbol. Changes only occur after hitting the "apply" button; this will not change what has already been added to the map. In order to filter the current screen, the map would have to be panned/zoomed off and then back to the current screen.
+
 * Dead reckoning!
 (dead_reckoning png) I spent some time researching this, but I have no idea how to forecast future location. I found some really neat information about hurricanes, but no algorithms or anything, other than current bearing+speed, so I made up my own method, which I have absolutely no justification for. What it does: if an item has moved (has a previous update at another location), I take that distance and project a new location in front of the packet along the current bearing, with a circle of uncertainty (just look at the picture). Also, this is only when mousing over an item.
+
 * Pull complete information on item from database!
 (detailed_information png) Right clicking on the map will bring up a popup window with a list of all the items under the mouse. If an item is selected, it's entire history is pulled from the database. The most recent packet is shown in the textbox on top. All other information is shown in the grid below. By default, columns are added for all the information that is parsed out of a packet. If a field is blank/not used for the entire history in the database, that column is hidden. For example, a packet that never received a wind speed would have the wind speed column hidden. If at least one packet contains a valid update, that column is shown, even if the other packets contain a bunch of NaN's or -1's. Also, the units shown change based on the english/metric profile setting.
+
 * Tracing that isn't terrible!
 Reimplemented our Point class to draw traces when a repaint occurs, instead of drawing a bunch of random QGraphicsLines on our map. Believe me, it's better this way.
+
 * Fixed: memory leaks, position reports, GUI beautifications!
 
+
+
 Known issues:
+
 * No character limit on callsign
+
 * Some tooltips are wrong
+
 * Some tab orders are wrong
+
 * Profile settings need to be explained -- i.e., there is no readme or help file (Quick note for the map: "online mode" will check the local tile directory, then download tiles from the internet. "Offline mode" will never download from the internet. Use %1, %2, and %3 in the tile server URL to reference zoom, x-tile number and y-tile number).
+
 * Possible GPL issues with open street maps
 By default, our application does not use open street maps. Since the user must enter a tile server URL in the profile, which, of course, could be any valid tile service (although, I'm not sure what would happen if the tiles were not 256x256 pixels), I personally do not think we need to include Open Street Maps licensing information, although other people may disagree.
+
 * Collision detection for items with traces is sometimes slightly inaccurate. Another related item involves the dead reckoning path not being entirely drawn. The answer lies in the Point::Shape and Point::BoundingRect functions.
+
 * When requesting items from the database, if an item has a more recent location but it is not on the current map screen, and there is a location that is on the current map screen, that more recent location is not shown. What this means is that it will seem as if you are looking at the latest information for a packet, but when you scroll around, it will start doing some crazy jumps, or disappear.
+
 * Panning around the edge of the map, especially at lower zoom levels (when you can see most of the world) does not provide for the best user experience.
+
 * Zooming all the way out and plotting a bajillion packets can take a long time. However, our application seems pretty stable.
+
 * It takes about 500ms before additional user input will be processed after panning or zooming.
+
 * Panning and zooming initiates a database request for the area that is now in the view; if the the application is closed while the database is still returning packets, the application will quit but the database thread will continue to run in the background until it's finished emitting all the packets. This is especially noticeable at lower zooms.
