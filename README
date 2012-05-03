@@ -1,5 +1,7 @@
 aprs-mapper
 
+NOTE: Developed with Patrick G., Nick B. and Jason S.
+
 This project was developed for a class taken at the University of Alabama in Huntsville. The purpose of this application is to copy some of the basic functionality available in other APRS applications (namely, xastir) but to provide a more user-friendly interface. Basic functionality was achieved at the end of the semester, but there are many features that are lacking for this to be a stable application available to the public.
 
 A quick overview of features:
